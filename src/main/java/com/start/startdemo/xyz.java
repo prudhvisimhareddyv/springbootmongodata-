@@ -7,5 +7,6 @@ public class xyz {
 
 int surya;
 String reddy;
+String prudhvi;
 
 }
