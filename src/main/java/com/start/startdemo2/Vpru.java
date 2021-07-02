@@ -10,10 +10,15 @@ import javax.persistence.*;
 public class Vpru {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @Column(name = "cvrey_id")
     private int CvreyID;
+    @Column(name="last_name")
     private String LastName;
+    @Column(name="first_name")
     private String FirstName;
+    @Column(name = "address")
     private String Address;
+    @Column(name = "city")
     private String City;
 
     public int getCvreyID() {
