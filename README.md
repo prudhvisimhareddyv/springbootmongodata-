@@ -1,1 +1,1 @@
-# springbootmongodata-mysql
+# springbootmongodata-jpa
