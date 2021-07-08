@@ -9,9 +9,8 @@ import javax.persistence.*;
 @Table(name="vpru")
 public class Vpru {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column(name = "cvrey_id")
-    private int CvreyID;
+    private Integer CvreyID;
     @Column(name="last_name")
     private String LastName;
     @Column(name="first_name")
@@ -21,7 +20,7 @@ public class Vpru {
     @Column(name = "city")
     private String City;
 
-    public int getCvreyID() {
+    public Integer getCvreyID() {
         return CvreyID;
     }
 
