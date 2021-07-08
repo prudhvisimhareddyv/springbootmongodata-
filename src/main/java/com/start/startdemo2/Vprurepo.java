@@ -35,28 +35,28 @@ public interface Vprurepo extends JpaRepository<Vpru,Integer> {
     List<Vpru> InsertByBody(@Param("CvreyID") int CvreyID, @Param("LastName") String LastName,@Param("FirstName") String FirstName,@Param("Address") String Address,@Param("City") String City );
 
 
-    @Modifying
+
     @Query(value = "select * from vpru where cvrey_id = ?1", nativeQuery = true)
     List<Vpru> SelectBy(@Param("CvreyID") int CvreyID);
 
 
-    @Modifying
+
     @Query(value = "select * from vpru", nativeQuery = true)
     List<Vpru> Selectall();
 
 
-    @Modifying
+
    @Query(value = "select * from vpru where cvrey_id = ?1 and address= ?2", nativeQuery = true)
     List<Vpru> findBycvreyidandaddress(@Param("cvrey_id") int cvrey_id, @Param("address")  String address);
 
 
 
-    @Modifying
+
     @Query(value = "select * from vpru where cvrey_id = ?1 or address= ?2", nativeQuery = true)
     List<Vpru> findBycvreyidoraddress(@Param("cvrey_id") int cvrey_id, @Param("address")  String address);
 
 
-    @Modifying
+
     @Query(value = "select count(*) from vpru", nativeQuery = true)
     List<Vpru> countalls();
 
