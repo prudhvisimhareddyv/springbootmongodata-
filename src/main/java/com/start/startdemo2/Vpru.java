@@ -9,14 +9,18 @@ import javax.persistence.*;
 @Table(name="vpru")
 public class Vpru {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int CvreyID;
+   @Column(name = "cvrey_id")
+    private Integer CvreyID;
+    @Column(name="last_name")
     private String LastName;
+    @Column(name="first_name")
     private String FirstName;
+    @Column(name = "address")
     private String Address;
+    @Column(name = "city")
     private String City;
 
-    public int getCvreyID() {
+    public Integer getCvreyID() {
         return CvreyID;
     }
 
