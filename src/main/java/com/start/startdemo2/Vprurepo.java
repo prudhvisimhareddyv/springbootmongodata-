@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,7 +33,7 @@ public interface Vprurepo extends JpaRepository<Vpru,Integer> {
     @Modifying
     @Query(value = "insert into vpru (cvrey_id, last_name, first_name, address,city) values (?1,?2 , ?3, ?4,?5)",
             nativeQuery = true)
-    List<Vpru> InsertByBody(@Param("CvreyID") int CvreyID, @Param("LastName") String LastName,@Param("FirstName") String FirstName,@Param("Address") String Address,@Param("City") String City );
+    int InsertByBody(@Param("CvreyID") int CvreyID, @Param("LastName") String LastName, @Param("FirstName") String FirstName, @Param("Address") String Address, @Param("City") String City );
 
 
 

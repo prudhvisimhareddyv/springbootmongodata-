@@ -6,14 +6,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
+import java.net.URI;
+import java.util.*;
 
 @RestController
 public class Vprucontroller {
     @Autowired
     private Vprurepo vprurepo;
+
+    private Vpru vpru;
     @GetMapping("/vpru")
     public ResponseEntity<List<Vpru>> listAll(/*Model model*/@Param("CvreyID") int CvreyID) {
 
@@ -22,12 +23,14 @@ public class Vprucontroller {
 
     }
     @PostMapping("/vprudetails")
-    public ResponseEntity<List<Vpru>> vprudet(@Param("CvreyID") int CvreyID, @Param("LastName") String LastName,@Param("FirstName") String FirstName,@Param("Address") String Address,@Param("City") String City) {
+    public ResponseEntity vprudet(@Param("CvreyID") int CvreyID, @Param("LastName") String LastName, @Param("FirstName") String FirstName, @Param("Address") String Address, @Param("City") String City) {
 
 
-        List<Vpru> listvpru = vprurepo.InsertByBody(CvreyID,LastName,FirstName,Address,City);
+        int setpru = vprurepo.InsertByBody(CvreyID,LastName,FirstName,Address,City);
         // =  vprurepo.findAll();
-        return ResponseEntity.ok().body(listvpru);
+        //vpru.setFirstName("");
+
+        return ResponseEntity.ok().body(setpru);
 
     }
     @DeleteMapping("/vprudelete")
@@ -74,6 +77,43 @@ public class Vprucontroller {
         List<Vpru> listvpru = vprurepo.countalls();
         return ResponseEntity.ok().body(listvpru);
 
+    }
+    //List li = new ArrayList();
+    @GetMapping("/printlist")
+    public ResponseEntity listmethods(){
+
+        List<String> list = new ArrayList();
+        list.add("pru");
+        list.add(0,"V");
+        //list.add(1);
+        System.out.println(list);
+        System.out.println(list.size());
+        System.out.println(list.isEmpty());
+        System.out.println(list.contains("pru"));
+        //System.out.println(list.indexOf(1));
+        System.out.println(list.lastIndexOf(1));
+        String[] arr = list.toArray(String[]::new);
+
+        for (String x : arr)
+            System.out.print(x + " ");
+        System.out.println("\n"+list.get(1));
+        System.out.println("\n"+list.set(1,"reddy"));
+        System.out.println("\n"+list.remove(1));
+        System.out.println("\n"+list.equals(list));
+        System.out.println("\n"+list.hashCode());
+        System.out.println(list.addAll(0,list));
+        System.out.println("\n"+list.retainAll(list));
+        //System.out.println("\n"+list.removeAll(list));
+        //list.Iterator, list.listIterator
+        //System.out.println("\n"+list.listIterator());
+        System.out.println(list.subList(0,2));
+        //System.out.println(list.next);
+        System.out.println("\n"+list);
+        String s = null;
+        System.out.println(s);
+
+
+        return ResponseEntity.ok().body("ok done!");
     }
 
 }
