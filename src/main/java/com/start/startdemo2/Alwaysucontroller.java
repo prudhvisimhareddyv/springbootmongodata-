@@ -54,7 +54,7 @@ public class Alwaysucontroller {
             System.out.println(Mco);
             CheckOutFinal cof = new CheckOutFinal();
             cof.setUsername(Userid);
-            cof.setMco(Mco);
+            //cof.setMco(Mco);
 
             checkoutfinalrepo.save(cof);
 
